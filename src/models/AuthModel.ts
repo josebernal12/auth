@@ -1,10 +1,7 @@
-import mongoose, { Schema, Document } from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
+import { UserType } from '../types/user.type'
 
-export type UserType = Document & {
-  name: string;
-  email: string;
-  password: string
-}
+
 
 const AuthSchema: Schema = new Schema({
   name: {

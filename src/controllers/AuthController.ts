@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express'
-import { UserType } from '../models/AuthModel'
 import { AuthService } from '../service/AuthService'
+import { UserAuthType, UserType } from '../types/user.type'
 export class AuthController {
 
   static createAccount = async (req: Request, res: Response) => {
@@ -16,7 +16,7 @@ export class AuthController {
   }
 
   static login = async (req: Request, res: Response) => {
-    const { email, password }: { email: string, password: string } = req.body 
+    const { email, password }: UserAuthType = req.body 
     const response = await AuthService.login(email,password)
     res.json({
       error: response.error,
