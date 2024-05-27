@@ -56,7 +56,7 @@ export class AuthService {
           const token = generateToken({ _id: user._id })
           return {
             error: false,
-            message: 'login exitosamente',
+            message: 'login exitosamente!',
             data: [user],
             token,
             status: 200
