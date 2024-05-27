@@ -1,8 +1,9 @@
 import { generateToken } from "../helpers/generateToken"
 import { Helper } from "../helpers/helper"
 import { Validate } from "../helpers/validation"
-import Auth, { UserType } from "../models/AuthModel"
+import Auth from "../models/AuthModel"
 import { ResponseType } from "../types/response.types"
+import { UserType } from "../types/user.type"
 
 export class AuthService {
 
