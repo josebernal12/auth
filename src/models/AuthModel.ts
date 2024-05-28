@@ -1,7 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
-import { UserType } from '../types/user.type'
-
-
+import { UserAuth } from '../types/user.type'
 
 const AuthSchema: Schema = new Schema({
   name: {
@@ -21,6 +19,6 @@ const AuthSchema: Schema = new Schema({
   }
 })
 
-const Auth = mongoose.model<UserType>('User', AuthSchema)
+const Auth = mongoose.model<UserAuth>('User', AuthSchema)
 
 export default Auth
