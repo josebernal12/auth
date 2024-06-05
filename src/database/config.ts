@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import colors from 'colors'
 import { exit } from 'node:process';
-import { env } from '../helpers/envalid';
+import { env } from '../helpers/config/envalid';
 
 export const connectDB = async () => {
   try {

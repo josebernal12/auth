@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express'
-import { AuthService } from '../service/AuthService'
-import { UserAuthType, UserType } from '../types/user.type'
+import { AuthService } from '../../service/auth/AuthService'
+import { UserAuthType, UserType } from '../../types/user/user.type'
 export class AuthController {
 
   static createAccount = async (req: Request, res: Response) => {

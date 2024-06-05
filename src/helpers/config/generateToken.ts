@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
-import { UserPayload } from '../types/user.type'
 import { env } from './envalid'
+import { UserPayload } from '../../types/user/user.type'
 
 export const generateToken = (payload: UserPayload) => {
   const token = jwt.sign(payload, env.JWT_SECRET, {

@@ -1,5 +1,5 @@
 import { connectDB } from './database/config'
-import { env } from './helpers/envalid'
+import { env } from './helpers/config/envalid'
 import server from './server'
 import colors from 'colors'
 

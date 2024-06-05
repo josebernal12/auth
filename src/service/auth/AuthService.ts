@@ -1,10 +1,10 @@
-import { generateToken } from "../helpers/generateToken"
-import { Helper } from "../helpers/helper"
-import { ResponseApi } from "../helpers/response"
-import { Validate } from "../helpers/validation"
-import Auth from "../models/AuthModel"
-import { ResponseType } from "../types/response.types"
-import { UserAuth } from "../types/user.type"
+import { generateToken } from "../../helpers/config/generateToken"
+import { Helper } from "../../helpers/helper/helper"
+import { Validate } from "../../helpers/helper/validation"
+import { ResponseApi } from "../../helpers/response/response"
+import Auth from "../../models/auth/AuthModel"
+import { ResponseType } from "../../types/response/response.types"
+import { UserAuth } from "../../types/user/user.type"
 
 export class AuthService {
 

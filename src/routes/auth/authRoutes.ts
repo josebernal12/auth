@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { AuthController } from '../controllers/AuthController'
+import { AuthController } from '../../controllers/auth/AuthController'
 // import { body } from 'express-validator'
 const router = Router()
 //TODO agregar el middleware handleinputErrors

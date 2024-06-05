@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
-import { UserAuth } from '../types/user.type'
+import { UserAuth } from '../../types/user/user.type'
 
 const AuthSchema: Schema = new Schema({
   name: {

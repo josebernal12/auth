@@ -1,4 +1,4 @@
-import Auth from "../models/AuthModel"
+import Auth from "../../models/auth/AuthModel"
 
 export class Validate {
 

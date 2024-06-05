@@ -1,4 +1,4 @@
-import { ResponseType } from "../types/response.types";
+import { ResponseType } from "../../types/response/response.types"
 
 export class ResponseApi {
 
