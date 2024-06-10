@@ -3,7 +3,7 @@ import { env } from './helpers/config/envalid'
 import server from './server'
 import colors from 'colors'
 
-const port = env.PORT || 4000
+const port = env.PORT || 8080
 
 
 server.listen(port, async () => {
