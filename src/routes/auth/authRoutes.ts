@@ -1,8 +1,7 @@
 import { Router } from 'express'
 import { AuthController } from '../../controllers/auth/AuthController'
-import validateCreate from '../../validators/users'
+import validateCreate from '../../midlewares/validators/users'
 const router = Router()
-//TODO agregar el middleware handleinputErrors
 router.post('/create-account',
   validateCreate,
   AuthController.createAccount
