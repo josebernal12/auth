@@ -16,13 +16,45 @@ export class AuthController {
   }
 
   static login = async (req: Request, res: Response) => {
-    const { email, password }: UserAuthType = req.body 
-    const response = await AuthService.login(email,password)
+    const { email, password }: UserAuthType = req.body
+    const response = await AuthService.login(email, password)
     res.json({
       error: response.error,
-      message : response.message,
+      message: response.message,
       data: response.data,
       token: response.token,
+      status: response.status
+    })
+  }
+
+  static recoverPassword = async (req: Request, res: Response) => {
+    const { email }: { email: string } = req.body
+    const response = await AuthService.recoverPassword(email)
+    res.json({
+      error: response.error,
+      message: response.message,
+      data: response.data,
+      status: response.status
+    })
+  }
+  static checkTokenEmail = async (req: Request, res: Response) => {
+    const { token } = req.params
+    const response = await AuthService.checkTokenEmail(token)
+    res.json({
+      error: response.error,
+      message: response.message,
+      data: response.data,
+      status: response.status
+    })
+  }
+  static changePassword = async (req: Request, res: Response) => {
+    const { password, confirmPassword }: { password: string, confirmPassword: string } = req.body
+    const { token } = req.params
+    const response = await AuthService.changePassword(password, confirmPassword, token)
+    res.json({
+      error: response.error,
+      message: response.message,
+      data: response.data,
       status: response.status
     })
   }

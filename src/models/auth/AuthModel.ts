@@ -16,6 +16,11 @@ const AuthSchema: Schema = new Schema({
     type: String,
     required: true,
     trim: true
+  },
+  token: {
+    type: String,
+    default: null,
+    trim: true
   }
 })
 
