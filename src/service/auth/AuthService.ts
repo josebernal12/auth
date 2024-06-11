@@ -1,4 +1,3 @@
-import { generateToken } from "../../helpers/config/generateToken"
 import { Helper } from "../../helpers/helper/helper"
 import { Validate } from "../../helpers/helper/validation"
 import { ResponseApi } from "../../helpers/response/response"
@@ -17,7 +16,7 @@ export class AuthService {
         if (!newUser) {
           return ResponseApi.error(true, 'error al crear usuario', 404)
         }
-        const token = generateToken({ _id: newUser._id })
+        const token = await Helper.generateToken({ _id: newUser._id })
         return ResponseApi.success<UserAuth>({
           error: false,
           message: 'se ha registrado exitosamente',
@@ -41,7 +40,7 @@ export class AuthService {
         if (user) {
           const isValid = Helper.compareHash(password, user.password)
           if (isValid) {
-            const token = generateToken({ _id: user._id })
+            const token = await Helper.generateToken({ _id: user._id })
             return ResponseApi.success<UserAuth>({
               error: false,
               message: 'login exitosamente!',

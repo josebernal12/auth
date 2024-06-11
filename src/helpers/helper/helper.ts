@@ -1,4 +1,8 @@
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+
+import { UserPayload } from '../../types/user/user.type'
+import { env } from '../config/envalid'
 export class Helper {
 
   static hashPassword = (password: string) => {
@@ -13,5 +17,11 @@ export class Helper {
       return true
     }
     return false
+  }
+  static generateToken = async (payload: UserPayload) => {
+    const token = jwt.sign(payload, env.JWT_SECRET, {
+      expiresIn: '180d'
+    })
+    return token
   }
 }
