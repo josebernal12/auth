@@ -27,5 +27,6 @@ export class Helper {
     const regex = new RegExp(`^${name}`, 'i');
     return regex;
   }
+  
 
 }

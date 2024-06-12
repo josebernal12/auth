@@ -6,7 +6,7 @@ export class AuthController {
   static createAccount = async (req: Request, res: Response) => {
     const { name, email, password }: UserType = req.body
     const response = await AuthService.createUser(name, email, password)
-    res.json({
+    res.status(response.status).json({
       error: response.error,
       message: response.message,
       data: response.data,
@@ -18,7 +18,7 @@ export class AuthController {
   static login = async (req: Request, res: Response) => {
     const { email, password }: UserAuthType = req.body
     const response = await AuthService.login(email, password)
-    res.json({
+    res.status(response.status).json({
       error: response.error,
       message: response.message,
       data: response.data,
@@ -30,7 +30,7 @@ export class AuthController {
   static recoverPassword = async (req: Request, res: Response) => {
     const { email }: { email: string } = req.body
     const response = await AuthService.recoverPassword(email)
-    res.json({
+    res.status(response.status).json({
       error: response.error,
       message: response.message,
       data: response.data,
@@ -40,7 +40,7 @@ export class AuthController {
   static checkTokenEmail = async (req: Request, res: Response) => {
     const { token } = req.params
     const response = await AuthService.checkTokenEmail(token)
-    res.json({
+    res.status(response.status).json({
       error: response.error,
       message: response.message,
       data: response.data,
@@ -51,7 +51,7 @@ export class AuthController {
     const { password, confirmPassword }: { password: string, confirmPassword: string } = req.body
     const { token } = req.params
     const response = await AuthService.changePassword(password, confirmPassword, token)
-    res.json({
+    res.status(response.status).json({
       error: response.error,
       message: response.message,
       data: response.data,

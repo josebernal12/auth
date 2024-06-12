@@ -6,19 +6,30 @@ type QueryParams = {
     name: string;
     showAll: string; // Las consultas de URL son siempre cadenas
     quantity: string; // Las consultas de URL son siempre cadenas
-  }
-  
+}
+
 export class UserController {
 
     static async getAll(req: Request<{}, {}, {}, QueryParams>, res: Response) {
         const { name, showAll, quantity } = req.query
-        const regex = Helper.transformNameRegularExpression(name)
+        const regex = name && name !== "undefined" ? Helper.transformNameRegularExpression(name) : null;
         const showAllNumber = parseInt(showAll, 10);
         const quantityNumber = parseInt(quantity, 10);
-    
+
         const response = await UserService.getAll(regex, showAllNumber, quantityNumber)
 
-        res.json({
+        res.status(response.status).json({
+            error: response.error,
+            message: response.message,
+            data: response.data,
+            status: response.status,
+        })
+    }
+    static async getById(req: Request, res: Response) {
+        const { id } = req.params
+        const response = await UserService.getById(id)
+
+        res.status(response.status).json({
             error: response.error,
             message: response.message,
             data: response.data,
