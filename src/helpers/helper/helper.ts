@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-
 import { UserPayload } from '../../types/user/user.type'
 import { env } from '../config/envalid'
 export class Helper {
@@ -24,4 +23,9 @@ export class Helper {
     })
     return token
   }
+  static transformNameRegularExpression = (name: string) => {
+    const regex = new RegExp(`^${name}`, 'i');
+    return regex;
+  }
+
 }

@@ -79,11 +79,14 @@ export class AuthService {
 
   static checkTokenEmail = async (token: string): Promise<ResponseType<UserAuth>> => {
     try {
-      const user = await Auth.findOne({ token });
-      if (user) {
-        return ResponseApi.success<UserAuth>({ error: false, data: user, message: "el token es valido", status: 200 })
+      if (token) {
+        const user = await Auth.findOne({ token });
+        if (user) {
+          return ResponseApi.success<UserAuth>({ error: false, data: user, message: "el token es valido", status: 200 })
+        }
+        return ResponseApi.error(true, 'el token no es valido', 404)
       }
-      return ResponseApi.error(true, 'el token no es valido', 404)
+      return ResponseApi.error(true, 'no existe token', 404)
     } catch (error) {
       return ResponseApi.error(true, 'entro al catch', 500)
     }

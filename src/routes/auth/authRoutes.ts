@@ -19,4 +19,5 @@ router.post('change-password/:token',
   userChangePassword,
   AuthController.changePassword
 )
+
 export default router
