@@ -36,4 +36,26 @@ export class UserController {
             status: response.status,
         })
     }
+    static async update(req: Request, res: Response) {
+        const { id } = req.params;
+        const { name, email } = req.body;
+        const response = await UserService.update(id, name, email);
+        res.status(response.status).json({
+            error: response.error,
+            message: response.message,
+            data: response.data,
+            status: response.status,
+        })
+    }
+
+    static async deleteById(req: Request, res: Response) {
+        const { id } = req.params;
+        const response = await UserService.deleteById(id);
+        res.status(response.status).json({
+            error: response.error,
+            message: response.message,
+            data: response.data,
+            status: response.status
+        })
+    }
 }
